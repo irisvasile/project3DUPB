@@ -19,6 +19,13 @@ public class PlayerInventory : Inventory
 {
 
     public Dictionary<ItemSlot, ItemEquipable> equippedItems = new Dictionary<ItemSlot, ItemEquipable>();
+    public Hero hero;
+
+    public void Start()
+    {
+        base.Start();
+        hero = GetComponent<Hero>();
+    }
 
     /**
      * <summary>Adds item to inventory. If it fails, the item will be dropped on the ground.</summary>

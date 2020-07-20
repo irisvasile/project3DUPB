@@ -6,11 +6,13 @@ public class DebuffDOT : Buff
 {
     public float t = 0, damageInterval = 1, damage = 5;
 
-    public DebuffDOT()
+    public DebuffDOT(string name, float duration, int stacksMax, float damageInterval, float damage)
     {
-        duration = 10;
-        stacksMax = 1;
-        name = "fire";
+        this.name = name;
+        this.duration = duration;
+        this.stacksMax = stacksMax;
+        this.damageInterval = damageInterval;
+        this.damage = damage;
     }
 
     public override void TriggeredUpdate()

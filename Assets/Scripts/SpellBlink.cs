@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpellBlink : Spell
 {
-    public SpellBlink(string spellName, float cooldownMax, float manaCost, float range, float damage, float radius)
+    public SpellBlink(string spellName, float cooldownMax, float manaCost, float range, Buff effect, float radius)
     {
         this.spellName = spellName;
         this.cooldownMax = cooldownMax;
         this.manaCost = manaCost;
         this.range = range;
-        this.damage = damage;
+        this.effect = effect;
         this.radius = radius;
     }
 
@@ -23,7 +23,7 @@ public class SpellBlink : Spell
             Unit u = hitColliders[i].GetComponent<Unit>();
             if (u != null && user.IsEnemy(u))
             {
-                u.TakeDamage(damage);
+                u.ApplyBuff(effect);
             }
         }
     }

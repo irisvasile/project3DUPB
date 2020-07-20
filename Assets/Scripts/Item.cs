@@ -54,5 +54,11 @@ public abstract class Item
         //}
     }
 
+    public void Interact()
+    {
+        if (owner is PlayerInventory)
+            Use();
+    }
+
     public abstract void Use();
 }

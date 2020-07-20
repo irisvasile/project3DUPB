@@ -19,7 +19,7 @@ public class Hero : ManaUser
         inventory = GetComponent<PlayerInventory>();
         // doar pentru testing
         AddExperience(1400);
-        spells.Add(new SpellBlink("Blink", 5, 5, 40, 2, 6000));
+        spells.Add(new SpellBlink("Blink", 5, 5, 40, new InstantDamage(2), 6000));
         alliance = Alliance.Good;
     }
 

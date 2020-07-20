@@ -7,6 +7,7 @@ public abstract class Spell
     public string spellName;
     public float manaCost = 0, range, damage, radius;
     public float cooldownMax, cooldown = 0;
+    public Buff effect;
 
     public bool Cast(ManaUser user, Vector3 pos)
     {
