@@ -67,7 +67,7 @@ public class Unit : MonoBehaviour
     /**
      * <summary>Triggers the death of the unit.</summary>
      */
-    public void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }

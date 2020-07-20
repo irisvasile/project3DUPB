@@ -19,7 +19,7 @@ public class Monster : ManaUser
         base.FixedUpdate();
     }
 
-    public new void Die()
+    public override void Die()
     {
         foreach (Hero h in FindObjectsOfType<Hero>())
         {
