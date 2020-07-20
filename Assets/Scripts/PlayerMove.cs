@@ -17,12 +17,15 @@ public class PlayerMove : MonoBehaviour
 
     private Transform targetedEnemy;
     private bool clickedEnemy;
+    [HideInInspector]
+    public Hero hero;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>(); //for animators
         navMeshAgent = GetComponent<NavMeshAgent>();
+        hero = GetComponent<Hero>();
     }
 
     // Update is called once per frame
@@ -32,7 +35,8 @@ public class PlayerMove : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Input.GetButtonDown("Fire2")) //right click
+        //am modificat putin ca sa pun blink
+        if (Input.GetButtonDown("Fire1")) //left click
         {
             if (Physics.Raycast(ray, out hit, 1000)) //max distance = 1000
             {
@@ -49,6 +53,15 @@ public class PlayerMove : MonoBehaviour
                     navMeshAgent.isStopped = false;
                     navMeshAgent.destination = hit.point;
                 }
+            }
+        }
+        else
+        if (Input.GetButtonDown("Fire2")) //right click
+        {
+            if (Physics.Raycast(ray, out hit, hero.spells[0].range)) //max distance = spell range
+            {
+                GetComponent<Hero>().CastSpell(0, hit.point);
+                // dupa blink destinatia ramane setata si continua sa mearga spre ea
             }
         }
 

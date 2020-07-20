@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 88838120}
   - component: {fileID: 88838119}
   - component: {fileID: 88838118}
+  - component: {fileID: 88838123}
+  - component: {fileID: 88838122}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -154,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 5
   attackRate: 0
+  hero: {fileID: 0}
 --- !u!65 &88838119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205,6 +208,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88838122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88838117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fc7d85656f6314ab1a442470f37f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backpackSizeMax: 30
+  gold: 0
+--- !u!114 &88838123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88838117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9010995942fdc448a631a063423b050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  healthMax: 0
+  alliance: 0
+  attackDamageMin: 0
+  attackDamageMax: 0
+  attackCooldownMax: 0
+  attackCooldown: 0
+  attackRange: 0
+  mana: 100
+  manaMax: 100
+  regen: 1
+  castPoint: {x: 0, y: 0, z: 0}
+  level: 1
+  strength: 0
+  agility: 0
+  intelligence: 0
+  points: 0
+  xp: 0
+  inventory: {fileID: 0}
 --- !u!1 &310292033
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +262,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 310292034}
+  - component: {fileID: 310292036}
+  - component: {fileID: 310292035}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -236,6 +286,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310292035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310292033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b61a43ee9b59b74f82414ab91a4364e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4
+  healthMax: 4
+  alliance: 1
+  attackDamageMin: 0
+  attackDamageMax: 0
+  attackCooldownMax: 0
+  attackCooldown: 0
+  attackRange: 0
+  mana: 0
+  manaMax: 0
+  regen: 0
+  castPoint: {x: 0, y: 0, z: 0}
+  xpDropped: 200
+  inventory: {fileID: 0}
+--- !u!136 &310292036
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310292033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &486980263
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +431,6 @@ GameObject:
   - component: {fileID: 695410406}
   - component: {fileID: 695410409}
   - component: {fileID: 695410408}
-  - component: {fileID: 695410407}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Enemy
@@ -363,20 +452,6 @@ Transform:
   m_Father: {fileID: 310292034}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &695410407
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695410405}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &695410408
 MeshRenderer:
   m_ObjectHideFlags: 0
