@@ -11,7 +11,7 @@ public class InstantDamage : BuffInstant
         this.damage = damage;
     }
 
-    public override void Execute()
+    public override void Execute(Unit target)
     {
         target.TakeDamage(damage);
     }

@@ -16,6 +16,7 @@ public class ItemConsumable : Item
         --stackSize;
         if (stackSize <= 0)
             owner.RemoveItem(backpackIndex);
-        ((PlayerInventory)owner).hero.ApplyBuff(effect);
+        Hero hero = ((PlayerInventory)owner).hero;
+        hero.ApplyBuff(effect, hero);
     }
 }

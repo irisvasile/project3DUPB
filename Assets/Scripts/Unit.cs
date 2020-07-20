@@ -13,6 +13,9 @@ public class Unit : MonoBehaviour
 {
     public float health, healthMax;
     public List<Buff> buffs = new List<Buff>();
+    public Dictionary<Buff, Unit> buffSources = new Dictionary<Buff, Unit>();
+    public Dictionary<Buff, int> buffStacks = new Dictionary<Buff, int>();
+    public Dictionary<Buff, float> buffDuration = new Dictionary<Buff, float>();
     [HideInInspector]
     public Alliance alliance;
     public int attackDamageMin, attackDamageMax;
@@ -32,7 +35,7 @@ public class Unit : MonoBehaviour
         for (int i = 0; i < buffs.Count; ++i)
         {
             Buff buff = buffs[i];
-            buff.FixedUpdate();
+            buff.FixedUpdate(this);
             if (buffs.Count <= i)
                 break;
             if (!buff.Equals(buffs[i]))
@@ -61,6 +64,7 @@ public class Unit : MonoBehaviour
      */
     public void TakeDamage(float amount)
     {
+        Debug.LogError(amount);
         Heal(-amount);
     }
 
@@ -75,20 +79,23 @@ public class Unit : MonoBehaviour
     /**
      * <summary>Adds a buff to the unit.</summary>
      */
-    public void ApplyBuff(Buff buff)
+    public void ApplyBuff(Buff buff, Unit source)
     {
         int i = 0;
-        for (; i < buffs.Count && !buffs[i].Equals(buff); ++i) ;
+        for (; i < buffs.Count && !buffs[i].Equals(buff); ++i);
         if (i != buffs.Count)
         {
-            buffs[i].duration = Mathf.Max(buffs[i].duration, buff.duration);
-            if (buffs[i].stacks < buffs[i].stacksMax)
-                buffs[i].stacks++;
+            buffDuration[buff] = Mathf.Max(buffDuration[buff], buff.durationMax);
+            if (buffStacks[buff] < buff.stacksMax)
+                ++buffStacks[buff];
+            buffSources[buff] = source;
         }
         else
         {
             buffs.Add(buff);
-            buff.target = this;
+            buffSources[buff] = source;
+            buffStacks[buff] = 1;
+            buffDuration[buff] = buff.durationMax;
         }
     }
 
@@ -127,5 +134,16 @@ public class Unit : MonoBehaviour
             attackCooldown = attackCooldownMax;
             return;
         }
+    }
+
+    public bool CanTarget(Unit u, bool targetsEnemies, bool targetsSelf)
+    {
+        if (this == u)
+            return targetsSelf;
+        if (IsEnemy(u))
+            return targetsEnemies;
+        if (!IsEnemy(u))
+            return !targetsEnemies;
+        return false;
     }
 }

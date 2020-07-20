@@ -8,6 +8,8 @@ public abstract class Spell
     public float manaCost = 0, range, damage, radius;
     public float cooldownMax, cooldown = 0;
     public Buff effect;
+    public bool targetsEnemies;
+    public bool targetsSelf;
 
     public bool Cast(ManaUser user, Vector3 pos)
     {

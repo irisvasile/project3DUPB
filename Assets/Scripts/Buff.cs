@@ -4,20 +4,23 @@ using UnityEngine;
 
 public abstract class Buff
 {
-    public Unit source, target;
-    public int stacks = 1, stacksMax;
-    public float duration;
+    public int stacksMax;
+    public float durationMax;
     public string name = "buff";
 
-    public void FixedUpdate()
+    public void FixedUpdate(Unit target)
     {
-        TriggeredUpdate();
-        duration -= Time.deltaTime;
-        if (duration < 0)
+        if (!target)
+            return;
+        TriggeredUpdate(target);
+        target.buffDuration[this] -= Time.deltaTime;
+        if (target.buffDuration[this] < 0)
+        {
             target.RemoveBuff(this);
+        }
     }
 
-    public abstract void TriggeredUpdate();
+    public abstract void TriggeredUpdate(Unit target);
 
     public bool Equals(Buff buff)
     {

@@ -6,16 +6,16 @@ public abstract class BuffInstant : Buff
 {
     public BuffInstant()
     {
-        duration = 0;
-        stacks = 1;
+        durationMax = -1;
+        stacksMax = 1;
         name = "instant";
     }
 
-    public override void TriggeredUpdate()
+    public override void TriggeredUpdate(Unit target)
     {
         target.RemoveBuff(this);
-        Execute();
+        Execute(target);
     }
 
-    public abstract void Execute();
+    public abstract void Execute(Unit target);
 }
