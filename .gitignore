@@ -6,7 +6,6 @@
 /[Tt]emp/
 /[Bb]uild/
 /[Bb]uilds/
-/[Ll]ogs/
 /[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
