@@ -15,12 +15,12 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 ## GAMEPLAY PROGRAMMER
 - [x] Character Move&Attack
 - [x] Camera
-- [ ] Inventory
+- [X] Inventory
 - [ ] Items
-- [ ] Character HP, Mana, Stamina
+- [X] Character HP, Mana, Stamina
 - [ ] Character Abilities
-- [ ] XP & Level UP
-- [ ] Character Select Screen
+- [X] XP & Level UP
+- [X] Character Select Screen
 - [ ] Animatii mobi si player
 
 ## UI PROGRAMMER&ARTIST
