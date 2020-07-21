@@ -30,7 +30,16 @@ public abstract class Unit : MonoBehaviour
     public void FixedUpdate()
     {
         if (health <= 0 || transform.position.y <= -10)
+        {
             Die();
+            return;
+        }
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
+        else
+            attackCooldown = 0;
         for (int i = 0; i < buffs.Count; ++i)
         {
             Buff buff = buffs[i];
@@ -81,6 +90,7 @@ public abstract class Unit : MonoBehaviour
     public void ApplyBuff(Buff buff, Unit source)
     {
         int i = 0;
+        Debug.Log("buff:" + buff.name);
         for (; i < buffs.Count && !buffs[i].Equals(buff); ++i) ;
         if (i != buffs.Count)
         {
@@ -125,7 +135,6 @@ public abstract class Unit : MonoBehaviour
     {
         if (attackCooldown > 0)
         {
-            attackCooldown -= Time.deltaTime;
             return;
         }
         /* if weapon equipped

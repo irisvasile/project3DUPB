@@ -173,7 +173,6 @@ MonoBehaviour:
   attackDamageMax: 0
   attackCooldownMax: 0
   attackCooldown: 0
-  attackRange: 0
   mana: 0
   manaMax: 0
   regen: 0
@@ -374,7 +373,6 @@ MonoBehaviour:
   attackDamageMax: 5
   attackCooldownMax: 3
   attackCooldown: 0
-  attackRange: 2
   mana: 100
   manaMax: 100
   regen: 1
@@ -473,7 +471,6 @@ MonoBehaviour:
   attackDamageMax: 0
   attackCooldownMax: 0
   attackCooldown: 0
-  attackRange: 0
   mana: 0
   manaMax: 0
   regen: 0
