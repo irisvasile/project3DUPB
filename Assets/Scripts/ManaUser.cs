@@ -6,6 +6,7 @@ public class ManaUser : Unit
 {
     public float mana = 100, manaMax = 100, regen = 1;
     public List<Spell> spells = new List<Spell>();
+    public Spell attackSpell;
     public Vector3 castPoint;
 
     public new void FixedUpdate()
@@ -77,6 +78,13 @@ public class ManaUser : Unit
     {
         // Sugestie: 0 poate fi click dreapta, 1, 2, 3, 4 etc pot fi pe tastele 1, 2, 3, 4
         if (spells[index].Cast(this, pos))
+            return true;
+        return false;
+    }
+
+    public override bool CastAttack(Vector3 pos)
+    {
+        if (attackSpell.Cast(this, pos))
             return true;
         return false;
     }

@@ -45,6 +45,7 @@ public class PlayerMove : MonoBehaviour
                     targetedEnemy = hit.transform;
                     clickedEnemy = true;
                     print("I WANNA TARGET THE ENEMY!");
+                    GetComponent<Hero>().Attack(hit.point);
                 }
                 else
                 {

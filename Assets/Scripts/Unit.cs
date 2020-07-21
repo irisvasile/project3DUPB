@@ -9,7 +9,7 @@ public enum Alliance
     Neutral // Animale, Cufere, Cutii, Vaze. NPC din oras nu vor fi de tipul Unit pentru ca nu au nevoie de HP si nu au cum sa moara
 }
 
-public class Unit : MonoBehaviour
+public abstract class Unit : MonoBehaviour
 {
     public float health, healthMax;
     public List<Buff> buffs = new List<Buff>();
@@ -20,7 +20,6 @@ public class Unit : MonoBehaviour
     public Alliance alliance;
     public int attackDamageMin, attackDamageMax;
     public float attackCooldownMax, attackCooldown = 0;
-    public float attackRange;
 
     // Start is called before the first frame update
     void Start()
@@ -75,14 +74,14 @@ public class Unit : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+
     /**
      * <summary>Adds a buff to the unit.</summary>
      */
     public void ApplyBuff(Buff buff, Unit source)
     {
         int i = 0;
-        for (; i < buffs.Count && !buffs[i].Equals(buff); ++i);
+        for (; i < buffs.Count && !buffs[i].Equals(buff); ++i) ;
         if (i != buffs.Count)
         {
             buffDuration[buff] = Mathf.Max(buffDuration[buff], buff.durationMax);
@@ -126,14 +125,16 @@ public class Unit : MonoBehaviour
     {
         if (attackCooldown > 0)
         {
-            /* if weapon equipped
-                    weapon.Attack(Random.range(attackDamageMin, attackDamageMax));
-               else
-                    PunchAttack(Random.range(attackDamageMin, attackDamageMax));
-             */
-            attackCooldown = attackCooldownMax;
+            attackCooldown -= Time.deltaTime;
             return;
         }
+        /* if weapon equipped
+                weapon.Attack(Random.range(attackDamageMin, attackDamageMax));
+           else
+                PunchAttack(Random.range(attackDamageMin, attackDamageMax));
+         */
+        if (CastAttack(pos))
+            attackCooldown = attackCooldownMax;
     }
 
     public bool CanTarget(Unit u, bool targetsEnemies, bool targetsSelf)
@@ -146,4 +147,13 @@ public class Unit : MonoBehaviour
             return !targetsEnemies;
         return false;
     }
+
+    public int GetAttackDamage()
+    {
+        return Random.Range(attackDamageMin, attackDamageMax + 1);
+    }
+
+    public abstract bool CastAttack(Vector3 pos);
+
+
 }

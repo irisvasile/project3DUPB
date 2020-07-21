@@ -370,11 +370,11 @@ MonoBehaviour:
   health: 0
   healthMax: 0
   alliance: 0
-  attackDamageMin: 0
-  attackDamageMax: 0
-  attackCooldownMax: 0
+  attackDamageMin: 3
+  attackDamageMax: 5
+  attackCooldownMax: 3
   attackCooldown: 0
-  attackRange: 0
+  attackRange: 2
   mana: 100
   manaMax: 100
   regen: 1
@@ -502,8 +502,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479208050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7, y: 0, z: -1.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -12.62, y: 1.5, z: 6}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1799461410}
   m_Father: {fileID: 0}
@@ -1542,8 +1542,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799461409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3200006, y: 2.38, z: 8.84}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 479208053}
   m_RootOrder: 0
