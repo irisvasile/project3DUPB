@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using System.Runtime.InteropServices.ComTypes;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,6 +22,8 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]
     public Hero hero;
 
+    private Vector3 lastPath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +35,21 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+
+        //am implementat hold position pe left shift
+        lastPath = navMeshAgent.destination;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            navMeshAgent.isStopped = true;
+            return;
+        }
+        else
+        {
+            navMeshAgent.isStopped = false;
+            navMeshAgent.destination = lastPath;
+        }
 
         //am modificat putin ca sa pun blink
         if (Input.GetButtonDown("Fire1")) //left click
