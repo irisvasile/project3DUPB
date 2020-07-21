@@ -1,6 +1,6 @@
 # project3DUPB - Doomsday
 
-Acesta este protitipul pe care vom lucra toti, in afara de cei de la game design.
+Acesta este protitipul la care vom lucra toti, in afara de cei de la game design.
 
  * O sa incerc sa fac cat de cat un TODO list pentru toti. Vom bifa pe parcurs ce am facut si ce nu.
  * Daca aveti mai multe idei, puteti sa le adaugati :) 
