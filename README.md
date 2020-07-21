@@ -8,7 +8,7 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 # TODO
 
 ## AI PROGRAMMER
-- [ ] Incercati sa faceti inamicul sa patruleze (poate fi folosit atat pentru inamici, cat si pentru mobi pasivi) []
+- [x] Incercati sa faceti inamicul sa patruleze (poate fi folosit atat pentru inamici, cat si pentru mobi pasivi) []
 - [ ] Cand depisteaza personajul, inamicul se indreapta inspre acesta (agressive mobs)
 - [ ] Faceti un alt inamic care sa fuga de personaj (acest comportament va fi adoptat de inamicii cu low HP)
 
