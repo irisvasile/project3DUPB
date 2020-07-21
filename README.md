@@ -13,12 +13,15 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 - [ ] Faceti un alt inamic care sa fuga de personaj (acest comportament va fi adoptat de inamicii cu low HP)
 
 ## GAMEPLAY PROGRAMMER
-- [x] Character Move&Attack
+- [X] Character Move&Attack - attacking partially implemented, needed: hold shift to hold position, continuous left click
 - [x] Camera
-- [X] Inventory
-- [ ] Items
-- [X] Character HP, Mana, Stamina
-- [ ] Character Abilities
+- [X] Inventory - item types should be changed to conform to design ideas
+- [X] Item Templates: Equipable, Consumable, Prices, Types - needs small ajustments
+- [ ] Equipable item stats: Armor, Attack Damage, Bonus Stats
+- [X] Character HP, Mana
+- [ ] Character Stats: implemented but don't do anything yet
+- [X] Character Ability Templates
+- [ ] Character Abilities - in progress
 - [X] XP & Level UP
 - [X] Character Select Screen
 - [ ] Animatii mobi si player
