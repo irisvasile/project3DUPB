@@ -9,6 +9,7 @@ public class AggressiveMob : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private GameObject[] players;
     private Transform[] playersPosition;
+    public static bool ableToAttack;
     
     [SerializeField] private float detectionDistance = 10f;
     [SerializeField] private float attackDistance = 2.5f;
@@ -17,6 +18,7 @@ public class AggressiveMob : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         players = GameObject.FindGameObjectsWithTag("Player");
+        
         if (players == null)
         {
             Debug.LogError("No Players");
@@ -29,9 +31,10 @@ public class AggressiveMob : MonoBehaviour
             Vector3.Distance(Helpers.GetClosestPlayer(this.transform, players).position, transform.position);
         if (distance < detectionDistance)
         {
-            
+            ableToAttack = true;
             if (distance > attackDistance)
             {
+                
                 MoveTowardsPlayer(Helpers.GetClosestPlayer(this.transform, players));
                 navMeshAgent.isStopped = false;
                 // print("MOVE TOWARDS THE CLOSEST PLAYER");
@@ -44,10 +47,11 @@ public class AggressiveMob : MonoBehaviour
         }
         else
         {
+            ableToAttack = false;
             // print("I DON'T SEE ANY PLAYER");
-            navMeshAgent.isStopped = true;
             // TODO: o sa aiba patrol
             // TODO: avand setate waypoints in functie de spawnpoint, se va intoarce singur catre spawnpoint sa patruleze.
+
         }
     }
     private void MoveTowardsPlayer(Transform closestPlayer)

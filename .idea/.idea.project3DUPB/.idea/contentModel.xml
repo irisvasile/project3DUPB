@@ -11,6 +11,7 @@
             <e p="AggressiveMob.cs" t="Include" />
             <e p="FleeFromPlayer.cs" t="Include" />
             <e p="Helpers.cs" t="Include" />
+            <e p="Patrol.cs" t="Include" />
           </e>
           <e p="Buff.cs" t="Include" />
           <e p="BuffInstant.cs" t="Include" />

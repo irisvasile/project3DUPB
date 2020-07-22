@@ -13,6 +13,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI_Scripts/AggressiveMob.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI_Scripts/Helpers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI_Scripts/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI_Scripts/FleeFromPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMove.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -22,6 +23,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/AI_Scripts/Helpers.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AI_Scripts/FleeFromPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AI_Scripts/AggressiveMob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI_Scripts/Patrol.cs" />
       </list>
     </option>
   </component>
@@ -67,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595408298943</updated>
       <workItem from="1595408305388" duration="2328000" />
-      <workItem from="1595411136333" duration="1666000" />
+      <workItem from="1595411136333" duration="6269000" />
     </task>
     <servers />
   </component>
