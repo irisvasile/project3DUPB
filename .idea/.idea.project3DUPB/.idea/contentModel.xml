@@ -9,6 +9,8 @@
         <e p="Scripts" t="Include">
           <e p="AI_SCRIPTS" t="Include">
             <e p="AggressiveMob.cs" t="Include" />
+            <e p="FleeFromPlayer.cs" t="Include" />
+            <e p="Helpers.cs" t="Include" />
           </e>
           <e p="Buff.cs" t="Include" />
           <e p="BuffInstant.cs" t="Include" />

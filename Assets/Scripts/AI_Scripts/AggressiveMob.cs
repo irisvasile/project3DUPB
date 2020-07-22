@@ -6,11 +6,13 @@ using UnityEngine.AI;
 
 public class AggressiveMob : MonoBehaviour
 {
-    [SerializeField] private Transform destination;
     private NavMeshAgent navMeshAgent;
     private GameObject[] players;
     private Transform[] playersPosition;
-
+    
+    [SerializeField] private float detectionDistance = 10f;
+    [SerializeField] private float attackDistance = 2.5f;
+    
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -23,15 +25,26 @@ public class AggressiveMob : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(GetClosestPlayer(players).position, transform.position) < 10f)
+        float distance =
+            Vector3.Distance(Helpers.GetClosestPlayer(this.transform, players).position, transform.position);
+        if (distance < detectionDistance)
         {
-            print("ATTACK PLAYER");
-            navMeshAgent.isStopped = false;
-            MoveTowardsPlayer(GetClosestPlayer(players));
+            
+            if (distance > attackDistance)
+            {
+                MoveTowardsPlayer(Helpers.GetClosestPlayer(this.transform, players));
+                navMeshAgent.isStopped = false;
+                // print("MOVE TOWARDS THE CLOSEST PLAYER");
+            }
+            else
+            {
+                navMeshAgent.isStopped = true;
+                print("ATTACK PLAYER");
+            }
         }
         else
         {
-            print("I DON'T SEE ANY PLAYER");
+            // print("I DON'T SEE ANY PLAYER");
             navMeshAgent.isStopped = true;
             // TODO: o sa aiba patrol
             // TODO: avand setate waypoints in functie de spawnpoint, se va intoarce singur catre spawnpoint sa patruleze.
@@ -45,20 +58,4 @@ public class AggressiveMob : MonoBehaviour
         // TODO: if (distance < X) - AttackPlayer();
     }
 
-    private Transform GetClosestPlayer(GameObject[] players)
-    {
-        Transform tMin = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (GameObject player in players)
-        {
-            float dist = Vector3.Distance(player.transform.position, currentPos);
-            if (dist < minDist)
-            {
-                tMin = player.transform;
-                minDist = dist;
-            }
-        }
-        return tMin;
-    }
 }
