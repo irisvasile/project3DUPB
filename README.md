@@ -28,7 +28,7 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 
 ## UI PROGRAMMER&ARTIST
  * Recomand sa folositi TextMeshPro pentru butoane si UI. Este gratuit si trebuie doar importat.
- - [ ] Incercati sa modificati Character Select Screen. Am pus niste butoane clasice, nothing fancy, dar voi puteti sa va jucati :D
+ - [X] Incercati sa modificati Character Select Screen. Am pus niste butoane clasice, nothing fancy, dar voi puteti sa va jucati :D
  - [ ] Incercati sa faceti un UI simplist pentru prototipul nostru. Puneti jos o bara pentru abilitati, hp si mana, etc.
 
 ## GAME DESIGN
