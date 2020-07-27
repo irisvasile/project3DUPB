@@ -35,5 +35,6 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
  * Datorita faptului ca asset-urile ocupa prea multa memorie, o sa ii rog, in special pe cei de la level design, sa lucreze in continuare pe ce ai lucrat ei. Nu dati aici push, deoarece vom ajunge de unde am plecat!
  * La final, o sa incercam cu totii sa va ajutam sa puneti cap la cap toate scripturile. Sau daca doriti, puteti de pe acum sa adaugati scripturile la proiectul final :D Intrebati, dati ping-uri pe Discord, mereu e cineva online care sa va ajute :)
  
+
 # IDEAS & SUGGESTIONS
 - Rezolutia recomandata pentru joc este 1920x1080. Daca o pastram pe aceasta nu mai avem probleme cu scalarea gresita a meniurilor.
