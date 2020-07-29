@@ -13,6 +13,7 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 - [X] Faceti un alt inamic care sa fuga de personaj (acest comportament va fi adoptat de inamicii cu low HP)
 
 ## GAMEPLAY PROGRAMMER
+- [ ] Loot drop/chance
 - [X] Character Move&Attack - attacking partially implemented, needed: hold shift to hold position, continuous left click
 - [x] Camera
 - [X] Inventory - item types should be changed to conform to design ideas
@@ -24,7 +25,9 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 - [ ] Character Abilities - in progress
 - [X] XP & Level UP
 - [X] Character Select Screen
-- [ ] Animatii mobi si player
+- [ ] Player and mob animations
+- [ ] Quests, Interactions with NPCs, Dialogue
+- [ ] Skill Tree --> daca nu avem timp, ma gandeam sa il lasam balta, si doar itemele ne vor da stats & buffs
 
 ## UI PROGRAMMER&ARTIST
  * Recomand sa folositi TextMeshPro pentru butoane si UI. Este gratuit si trebuie doar importat.
