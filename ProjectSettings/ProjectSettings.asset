@@ -639,7 +639,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -653,10 +653,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 303cc9ea-f1a0-44e6-9d9e-aa396ab9ed7d
+  cloudProjectId: 4f96156d-b830-4b2d-a58b-008144c1c978
   framebufferDepthMemorylessMode: 0
   projectName: Move&Att
-  organizationId: mihaiirm
+  organizationId: andreeadiana0327
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
