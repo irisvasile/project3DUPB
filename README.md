@@ -13,6 +13,7 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 - [X] Faceti un alt inamic care sa fuga de personaj (acest comportament va fi adoptat de inamicii cu low HP)
 
 ## GAMEPLAY PROGRAMMER
+- [ ] Loot drop/chance
 - [X] Character Move&Attack - attacking partially implemented, needed: hold shift to hold position, continuous left click
 - [x] Camera
 - [X] Inventory - item types should be changed to conform to design ideas
