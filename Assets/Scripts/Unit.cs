@@ -20,6 +20,7 @@ public abstract class Unit : MonoBehaviour
     public Alliance alliance;
     public int attackDamageMin, attackDamageMax;
     public float attackCooldownMax, attackCooldown = 0;
+    public bool isStunned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public abstract class Unit : MonoBehaviour
 
     public void FixedUpdate()
     {
+        isStunned = false;
         if (health <= 0 || transform.position.y <= -10)
         {
             Die();

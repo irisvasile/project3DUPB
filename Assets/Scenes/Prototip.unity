@@ -875,8 +875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9010995942fdc448a631a063423b050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  healthMax: 0
+  health: 300
+  healthMax: 300
   alliance: 0
   attackDamageMin: 3
   attackDamageMax: 5
@@ -884,13 +884,13 @@ MonoBehaviour:
   attackCooldown: 0
   mana: 100
   manaMax: 100
-  regen: 1
+  regen: 5
   castPoint: {x: 0, y: 0, z: 0}
   level: 1
-  strength: 0
-  agility: 0
-  intelligence: 0
-  points: 0
+  strength: 10
+  dexterity: 10
+  wisdom: 10
+  points: 4
   xp: 0
   inventory: {fileID: 0}
 --- !u!114 &457055966

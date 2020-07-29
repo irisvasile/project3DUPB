@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Attribute
+{
+    STR,
+    DEX,
+    WIS
+}
+
 public class Hero : ManaUser
 {
     public int level = 1;
-    public int strength, agility, intelligence, points;
+    public int strength = 10, dexterity = 10, wisdom = 10, points = 4;
     public float xp;
-    public const int pointsPerLevel = 5;
-    public const float healthPerLevel = 20;
-    public const float manaPerLevel = 5;
+    public const int maxLevel = 10;
+    public const int pointsPerLevel = 2;
+    public const float healthPerLevel = 100;
+    public const float manaPerLevel = 30;
     [HideInInspector]
     public PlayerInventory inventory;
     public const int goldPercentageLost = 10;
@@ -18,16 +26,17 @@ public class Hero : ManaUser
     {
         inventory = GetComponent<PlayerInventory>();
         alliance = Alliance.Good;
+        attackDamageMin = 9;
+        attackDamageMax = 12;
         // doar pentru testing
-        AddExperience(1400);
+        AddExperience(ExperienceForLevel(2));
         health /= 2;
         attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly");
-        spells.Add(new SpellMissile("Arcane Missile", 1, 2, 40, new InstantDamage(1), 2, 2, true, "MissileArcane", "ImpactArcane"));
+        spells.Add(new SpellMissile("Arcane Missile", 1, 2, 40, new InstantAttributeDamage(1, Attribute.WIS), 2, 2, true, "MissileArcane", "ImpactArcane"));
         spells.Add(new SpellMissile("Fireball", 5, 10, 40, new DebuffDOT("Fire", 8, 5, 2, 2), 2, 2, true, "MissileFire", "ImpactFire"));
         spells.Add(new SpellExplosion("Heal", 0, 20, 80, new InstantDamage(-10), 2, false, true, "ImpactHoly"));
-        spells.Add(new SpellBlink("Blink", 2, 5, 40, new InstantDamage(1), 2, true, false, "ImpactArcane"));
+        spells.Add(new SpellBlink("Blink", 2, 5, 40, new InstantAttributeDamage(2, Attribute.WIS), 2, true, false, "ImpactArcane"));
         spells.Add(new SpellAoe("Hellfire", 10, 8, new DebuffDOT("Fire", 8, 5, 2, 2), 2, true, true, "ImpactFire"));
-
     }
 
     public new void FixedUpdate()
@@ -41,7 +50,7 @@ public class Hero : ManaUser
     public void AddExperience(float amount)
     {
         xp += amount;
-        while (xp >= ExperienceForLevel(level))
+        while (xp >= ExperienceForLevel(level) && level != maxLevel)
         {
             LevelUp();
         }
@@ -53,6 +62,8 @@ public class Hero : ManaUser
      */
     public float ExperienceForLevel(int lvl)
     {
+        if (lvl == maxLevel)
+            return ExperienceForLevel(lvl - 1);
         return lvl * lvl * 100;
     }
 
@@ -61,7 +72,11 @@ public class Hero : ManaUser
      */
     public void LevelUp()
     {
+        if (level == maxLevel)
+            return;
         ++level;
+        ++attackDamageMin;
+        ++attackDamageMax;
         points += pointsPerLevel;
         healthMax += healthPerLevel;
         manaMax += manaPerLevel;
@@ -79,21 +94,21 @@ public class Hero : ManaUser
         }
     }
 
-    public void AddAgility()
+    public void AddDexterity()
     {
         if (points > 0)
         {
             --points;
-            ++agility;
+            ++dexterity;
         }
     }
 
-    public void AddIntelligence()
+    public void AddWisdom()
     {
         if (points > 0)
         {
             --points;
-            ++intelligence;
+            ++wisdom;
         }
     }
 

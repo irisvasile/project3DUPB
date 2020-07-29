@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class ManaUser : Unit
 {
-    public float mana = 100, manaMax = 100, regen = 1;
+    public float mana = 100, manaMax = 100, regen = 5;
     public List<Spell> spells = new List<Spell>();
     public Spell attackSpell;
-    public Vector3 castPoint;
 
     public new void FixedUpdate()
     {
         base.FixedUpdate();
         if (mana < manaMax)
         {
-            mana += regen * Time.deltaTime;
+            mana += regen * Time.deltaTime * manaMax / 100;
             if (mana > manaMax)
                 mana = manaMax;
         }
