@@ -14,7 +14,7 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 
 ## GAMEPLAY PROGRAMMER
 - [ ] Loot drop/chance
-- [X] Character Move&Attack - attacking partially implemented, needed: hold shift to hold position, continuous left click
+- [-] Character Move&Attack - needed: attack with weapon, range attack, continuous left click
 - [x] Camera
 - [X] Inventory - item types should be changed to conform to design ideas
 - [X] Item Templates: Equipable, Consumable, Prices, Types - needs small ajustments
@@ -22,7 +22,7 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 - [X] Character HP, Mana
 - [ ] Character Stats: implemented but don't do anything yet
 - [X] Character Ability Templates
-- [ ] Character Abilities - in progress
+- [-] Character Abilities - in progress
 - [X] XP & Level UP
 - [X] Character Select Screen
 - [ ] Player and mob animations
