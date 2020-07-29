@@ -19,8 +19,10 @@ public class Hero : ManaUser
         inventory = GetComponent<PlayerInventory>();
         // doar pentru testing
         AddExperience(1400);
+        health /= 2;
         attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly");
-        spells.Add(new SpellBlink("Blink", 5, 5, 40, new InstantDamage(2), 2, true, true, "ImpactArcane"));
+        spells.Add(new SpellBlink("Blink", 2, 5, 40, new InstantDamage(2), 2, true, true, "ImpactArcane"));
+        spells.Add(new SpellExplosion("Heal", 0, 20, 40, new InstantDamage(-10), 2, false, true, "ImpactHoly"));
         alliance = Alliance.Good;
     }
 

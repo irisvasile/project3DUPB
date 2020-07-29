@@ -75,10 +75,38 @@ public class PlayerMove : MonoBehaviour
         else
         if (Input.GetButtonDown("Fire2")) //right click
         {
-            if (Physics.Raycast(ray, out hit, hero.spells[0].range)) //max distance = spell range
+            if (hero.spells.Count > 0 && Physics.Raycast(ray, out hit, hero.spells[0].range)) //max distance = spell range
             {
                 GetComponent<Hero>().CastSpell(0, hit.point);
                 // dupa blink destinatia ramane setata si continua sa mearga spre ea
+                // cineva ar trebui sa repare asta
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (hero.spells.Count > 1 && Physics.Raycast(ray, out hit, hero.spells[1].range)) //max distance = spell range
+            {
+                GetComponent<Hero>().CastSpell(1, hit.point);
+                // dupa blink destinatia ramane setata si continua sa mearga spre ea
+                // cineva ar trebui sa repare asta
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (hero.spells.Count > 2 && Physics.Raycast(ray, out hit, hero.spells[2].range)) //max distance = spell range
+            {
+                GetComponent<Hero>().CastSpell(2, hit.point);
+                // dupa blink destinatia ramane setata si continua sa mearga spre ea
+                // cineva ar trebui sa repare asta
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (hero.spells.Count > 3 && Physics.Raycast(ray, out hit, hero.spells[3].range)) //max distance = spell range
+            {
+                GetComponent<Hero>().CastSpell(3, hit.point);
+                // dupa blink destinatia ramane setata si continua sa mearga spre ea
+                // cineva ar trebui sa repare asta
             }
         }
 
