@@ -25,7 +25,8 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 - [ ] Character Abilities - in progress
 - [X] XP & Level UP
 - [X] Character Select Screen
-- [ ] Animatii mobi si player
+- [ ] Player and mob animations
+- [ ] Quests, Interactions with NPCs, Dialogue
 
 ## UI PROGRAMMER&ARTIST
  * Recomand sa folositi TextMeshPro pentru butoane si UI. Este gratuit si trebuie doar importat.
