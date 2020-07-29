@@ -10,6 +10,7 @@ public abstract class Spell
     public Buff effect;
     public bool targetsEnemies;
     public bool targetsSelf;
+    public ParticleSystem impactType;
 
     public bool Cast(ManaUser user, Vector3 pos)
     {

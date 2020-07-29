@@ -19,6 +19,7 @@ public class PlayerInventory : Inventory
 {
 
     public Dictionary<ItemSlot, ItemEquipable> equippedItems = new Dictionary<ItemSlot, ItemEquipable>();
+    [HideInInspector]
     public Hero hero;
 
     public void Start()

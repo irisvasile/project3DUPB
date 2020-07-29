@@ -20,7 +20,7 @@ public class Hero : ManaUser
         // doar pentru testing
         AddExperience(1400);
         attackSpell = new SpellExplosion("Attack", 0, 0, 2, new InstantAttackDamage(1), 1, true, false);
-        spells.Add(new SpellBlink("Blink", 5, 5, 40, new InstantDamage(2), 60, true, true));
+        spells.Add(new SpellBlink("Blink", 5, 5, 40, new InstantDamage(2), 2, true, true, "ImpactArcane"));
         alliance = Alliance.Good;
     }
 
