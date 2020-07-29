@@ -23,7 +23,7 @@ public class DebuffDOT : Buff
         if (t >= damageInterval)
         {
             t -= damageInterval;
-            target.TakeDamage(damage);
+            target.TakeDamage(damage * target.buffStacks[this]);
         }
     }
 }

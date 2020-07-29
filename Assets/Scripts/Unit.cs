@@ -91,13 +91,14 @@ public abstract class Unit : MonoBehaviour
     {
         int i = 0;
         Debug.Log("buff:" + buff.name);
-        for (; i < buffs.Count && !buffs[i].Equals(buff); ++i) ;
+        for (; i < buffs.Count && !buffs[i].Equals(buff); ++i);
         if (i != buffs.Count)
         {
             buffDuration[buff] = Mathf.Max(buffDuration[buff], buff.durationMax);
             if (buffStacks[buff] < buff.stacksMax)
                 ++buffStacks[buff];
             buffSources[buff] = source;
+            Debug.Log("buff:" + buffStacks[buff]);
         }
         else
         {

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3869498325445286032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3869498326113144513}
   m_Father: {fileID: 0}
@@ -81,12 +81,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3869498325445286032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb42011edaf20e4d80a0b767d1a2f3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 817c650ba082950498234015804648ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
+  user: {fileID: 0}
+  impactType: {fileID: 0}
   damage: 0
   range: 0
+  radius: 0
+  speed: 0
+  targetsEnemies: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &3869498326113144512
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 3869498326113144512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3869498325445286035}
   m_RootOrder: 0
@@ -891,7 +897,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 1
       spread: 0
       speed:
         serializedVersion: 2
@@ -4792,6 +4798,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4804,6 +4811,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -109,6 +109,15 @@ public class PlayerMove : MonoBehaviour
                 // cineva ar trebui sa repare asta
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (hero.spells.Count > 4 && Physics.Raycast(ray, out hit, hero.spells[4].range)) //max distance = spell range
+            {
+                GetComponent<Hero>().CastSpell(4, hit.point);
+                // dupa blink destinatia ramane setata si continua sa mearga spre ea
+                // cineva ar trebui sa repare asta
+            }
+        }
 
         if (clickedEnemy)
         {
