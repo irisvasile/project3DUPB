@@ -27,6 +27,7 @@ Acesta este protitipul la care vom lucra toti, in afara de cei de la game design
 - [X] Character Select Screen
 - [ ] Player and mob animations
 - [ ] Quests, Interactions with NPCs, Dialogue
+- [ ] Skill Tree --> daca nu avem timp, ma gandeam sa il lasam balta, si doar itemele ne vor da stats & buffs
 
 ## UI PROGRAMMER&ARTIST
  * Recomand sa folositi TextMeshPro pentru butoane si UI. Este gratuit si trebuie doar importat.
