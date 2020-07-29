@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellAoe : Spell
 {
-    public SpellAoe(string spellName, float cooldownMax, float manaCost, Buff effect, float radius, bool targetsEnemies, bool targetsSelf)
+    public SpellAoe(string spellName, float cooldownMax, float manaCost, Buff effect, float radius, bool targetsEnemies, bool targetsSelf, string impactName)
     {
         this.spellName = spellName;
         this.cooldownMax = cooldownMax;
@@ -14,11 +14,13 @@ public class SpellAoe : Spell
         this.radius = radius;
         this.targetsEnemies = targetsEnemies;
         this.targetsSelf = targetsSelf;
+        LoadImpact(impactName);
     }
 
     public override void Use(ManaUser user, Vector3 pos)
     {
         Collider[] hitColliders = Physics.OverlapSphere(user.transform.position, radius);
+        ShowImpact(user.transform.position);
         for (int i = 0; i < hitColliders.Length; ++i)
         {
             Unit u = hitColliders[i].GetComponent<Unit>();

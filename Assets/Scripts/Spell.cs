@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public abstract class Spell
 {
@@ -44,5 +45,23 @@ public abstract class Spell
             cooldown = 0;
     }
 
+    public void ShowImpact(Vector3 pos)
+    {
+        if (impactType != null)
+        {
+            ParticleSystem impact = GameObject.Instantiate(impactType) as ParticleSystem;
+            //ShapeModule sm = impact.shape;
+            //sm.radius = radius;
+            impact.transform.localScale *= radius;
+            impact.transform.position = pos + Vector3.up;
+        }
+    }
+
+    public void LoadImpact(string impactName)
+    {
+        impactType = Resources.Load<ParticleSystem>("Prefabs/Impacts/" + impactName) as ParticleSystem;
+    }
+
     public abstract void Use(ManaUser user, Vector3 pos);
+
 }

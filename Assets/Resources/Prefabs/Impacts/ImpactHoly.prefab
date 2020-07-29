@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4104896490123304812}
   - component: {fileID: 4104896490123304813}
   m_Layer: 0
-  m_Name: ImpactArcane
+  m_Name: ImpactHoly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4780,7 +4780,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 70a2bcf0804529f41a7b4b3771c15389, type: 2}
+  - {fileID: 2100000, guid: 50279418159822143ae24e32fe7d8328, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
