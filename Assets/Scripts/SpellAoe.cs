@@ -9,7 +9,7 @@ public class SpellAoe : Spell
         this.spellName = spellName;
         this.cooldownMax = cooldownMax;
         this.manaCost = manaCost;
-        range = -1;
+        range = int.MaxValue;
         this.effect = effect;
         this.radius = radius;
         this.targetsEnemies = targetsEnemies;

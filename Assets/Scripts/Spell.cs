@@ -20,7 +20,7 @@ public abstract class Spell
             Debug.Log(spellName + " not ready yet! CD Remaining: " + cooldown);
             return false;
         }
-        if (range != -1 && Vector3.Distance(user.transform.position, pos) > range)
+        if (Vector3.Distance(user.transform.position, pos) > range)
         {
             Debug.Log("Too far away!");
             return false;
@@ -29,6 +29,7 @@ public abstract class Spell
         {
             cooldown = cooldownMax;
             Use(user, pos);
+            Debug.Log("Casted!");
             return true;
         }
         Debug.Log("Not enough mana!");
