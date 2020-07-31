@@ -920,17 +920,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b61a43ee9b59b74f82414ab91a4364e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
-  healthMax: 4
+  health: 100
+  healthMax: 100
   alliance: 1
   attackDamageMin: 0
   attackDamageMax: 0
   attackCooldownMax: 0
   attackCooldown: 0
   isStunned: 0
-  mana: 0
-  manaMax: 20
-  regen: 100
+  mana: 60
+  manaMax: 60
+  regen: 25
   xpDropped: 200
   inventory: {fileID: 0}
   spellNames:
@@ -1642,17 +1642,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b61a43ee9b59b74f82414ab91a4364e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  healthMax: 20
+  health: 100
+  healthMax: 100
   alliance: 1
   attackDamageMin: 0
   attackDamageMax: 0
   attackCooldownMax: 0
   attackCooldown: 0
   isStunned: 0
-  mana: 0
-  manaMax: 20
-  regen: 100
+  mana: 60
+  manaMax: 60
+  regen: 25
   xpDropped: 200
   inventory: {fileID: 0}
   spellNames:
@@ -1889,17 +1889,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b61a43ee9b59b74f82414ab91a4364e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
-  healthMax: 4
+  health: 100
+  healthMax: 100
   alliance: 1
   attackDamageMin: 0
   attackDamageMax: 0
   attackCooldownMax: 0
   attackCooldown: 0
   isStunned: 0
-  mana: 10
-  manaMax: 10
-  regen: 100
+  mana: 60
+  manaMax: 60
+  regen: 25
   xpDropped: 200
   inventory: {fileID: 0}
   spellNames:

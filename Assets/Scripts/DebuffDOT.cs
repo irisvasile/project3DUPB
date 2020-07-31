@@ -6,19 +6,18 @@ public class DebuffDOT : Buff
 {
     public float t = 0, damageInterval = 1, damageOverTime = 5, initialDamage = 0;
 
-    public DebuffDOT(string name, float durationMax, int stacksMax, float damageInterval, float damageOverTime, float initialDamage)
+    public DebuffDOT(string name, float durationMax, int stacksMax, float damageInterval, float damageOverTime)
     {
         this.name = name;
         this.durationMax = durationMax;
         this.stacksMax = stacksMax;
         this.damageInterval = damageInterval;
         this.damageOverTime = damageOverTime;
-        this.initialDamage = initialDamage;
     }
 
     public override void OnApply(Unit target)
     {
-        target.TakeDamage(initialDamage);
+
     }
 
     public override void TriggeredUpdate(Unit target)
