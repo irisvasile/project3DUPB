@@ -34,8 +34,8 @@ public class Hero : ManaUser
         attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly");
         spells.Add(new SpellMissile("Arcane Missile", 1, 2, 40, new InstantAttributeDamage(1, Attribute.WIS), 2, 2, true, "MissileArcane", "ImpactArcane"));
         spells.Add(new SpellMissile("Fireball", 5, 10, 40, new DebuffDOT("Fire", 8, 5, 2, 2), 2, 2, true, "MissileFire", "ImpactFire"));
-        spells.Add(new SpellExplosion("Heal", 0, 20, 80, new InstantDamage(-10), 2, false, true, "ImpactHoly"));
-        spells.Add(new SpellBlink("Blink", 2, 5, 40, new InstantAttributeDamage(2, Attribute.WIS), 2, true, false, "ImpactArcane"));
+        spells.Add(new SpellExplosion("Heal", 0, 20, 80, new InstantAttributeDamage(-10, Attribute.WIS), 2, false, true, "ImpactHoly"));
+        spells.Add(new SpellBlink("Blink", 2, 5, 40, new InstantAttributeDamage(2, Attribute.DEX), 2, true, false, "ImpactArcane"));
         spells.Add(new SpellAoe("Hellfire", 10, 8, new DebuffDOT("Fire", 8, 5, 2, 2), 2, true, true, "ImpactFire"));
     }
 

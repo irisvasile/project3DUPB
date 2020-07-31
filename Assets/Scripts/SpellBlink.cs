@@ -20,8 +20,9 @@ public class SpellBlink : Spell
 
     public override void Use(ManaUser user, Vector3 pos)
     {
-        Collider[] hitColliders = Physics.OverlapSphere(pos, radius);
-        ShowImpact(pos);
+        user.transform.position = pos;
+        Collider[] hitColliders = Physics.OverlapSphere(user.transform.position, radius);
+        ShowImpact(user.transform.position);
         for (int i = 0; i < hitColliders.Length; ++i)
         {
             Unit u = hitColliders[i].GetComponent<Unit>();
@@ -30,6 +31,5 @@ public class SpellBlink : Spell
                 u.ApplyBuff(effect, user);
             }
         }
-        user.transform.position = pos;
     }
 }
