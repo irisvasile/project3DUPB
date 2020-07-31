@@ -40,13 +40,13 @@ public class Hero : ManaUser
         attackDamageMax = 12;
         // doar pentru testing
         AddExperience(ExperienceForLevel(2));
-        health /= 2;
-        attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly");
-        spells.Add(new SpellMissile("Arcane Missile", 1, 2, 40, new InstantAttributeDamage(1, Attribute.WIS), 2, 2, true, "MissileArcane", "ImpactArcane"));
-        spells.Add(new SpellMissile("Fireball", 5, 10, 40, new DebuffDOT("Fire", 8, 5, 2, 2, 1), 2, 2, true, "MissileFire", "ImpactFire"));
-        spells.Add(new SpellExplosion("Heal", 0, 20, 80, new InstantAttributeHeal(10, Attribute.WIS), 2, false, true, "ImpactHoly"));
-        spells.Add(new SpellBlink("Blink", 2, 5, 40, new InstantAttributeDamage(2, Attribute.DEX), 2, true, false, "ImpactArcane"));
-        spells.Add(new SpellAoe("Hellfire", 10, 8, new DebuffDOT("Fire", 8, 5, 2, 2, 1), 2, true, true, "ImpactFire"));
+        health = 2;
+        attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly", false);
+        GrantSpell("Frost Shot");
+        GrantSpell("Sanguine Shot");
+        GrantSpell("Heal");
+        GrantSpell("Blink");
+        GrantSpell("Rain of Arrows");
     }
 
     public new void FixedUpdate()
@@ -123,10 +123,12 @@ public class Hero : ManaUser
     }
 
     /// <summary>When a hero dies, they lose a percentage of their gold.</summary>
-    public new void Die()
+    public override void Die()
     {
         int gold = inventory.gold;
         gold -= gold * goldPercentageLost / 100;
         inventory.gold = gold;
+        Cleanse();
+        health = healthMax / 2;
     }
 }

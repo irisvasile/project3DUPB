@@ -7,16 +7,25 @@ public class Monster : ManaUser
     public float xpDropped = 0;
     /// <summary>Used for mob item and gold drops.</summary>
     public Inventory inventory;
+    public List<string> spellNames = new List<string>();
+    public Unit target;
 
     void Start()
     {
         inventory = GetComponent<Inventory>();
         alliance = Alliance.Evil;
+        foreach (string spellName in spellNames)
+        {
+            GrantSpell(spellName);
+        }
     }
 
     public new void FixedUpdate()
     {
         base.FixedUpdate();
+        if (target != null)
+            for (int i = 0; i < spellNames.Count; ++i)
+                CastSpell(i, target.transform.position);
     }
 
     public override void Die()

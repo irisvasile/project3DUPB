@@ -7,10 +7,11 @@ public class InstantAttributeHeal : BuffInstant
     public float healing;
     public Attribute atr;
 
-    public InstantAttributeHeal(float healing, Attribute atr)
+    public InstantAttributeHeal(float healing, Attribute atr, Buff effect)
     {
         this.healing = healing;
         this.atr = atr;
+        this.effect = effect;
     }
 
     public override void Execute(Unit target)

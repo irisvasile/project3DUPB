@@ -11,6 +11,7 @@ public abstract class Spell
     public Buff effect;
     public bool targetsEnemies;
     public bool targetsSelf;
+    public string impactName;
     public ParticleSystem impactType;
 
     public bool Cast(ManaUser user, Vector3 pos)
@@ -64,5 +65,6 @@ public abstract class Spell
     }
 
     public abstract void Use(ManaUser user, Vector3 pos);
+    public abstract Spell Clone();
 
 }

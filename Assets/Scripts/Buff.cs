@@ -15,7 +15,7 @@ public abstract class Buff
 
     public void FixedUpdate(Unit target)
     {
-        if (!target)
+        if (!target || !target.buffSources.ContainsKey(this))
             return;
         TriggeredUpdate(target);
         target.buffDuration[this] -= Time.deltaTime;

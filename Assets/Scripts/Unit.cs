@@ -201,5 +201,10 @@ public abstract class Unit : MonoBehaviour
 
     public abstract bool CastAttack(Vector3 pos);
 
-
+    public void Cleanse()
+    {
+        buffSources = new Dictionary<Buff, Unit>();
+        buffStacks = new Dictionary<Buff, int>();
+        buffDuration = new Dictionary<Buff, float>();
+    }
 }
