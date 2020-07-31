@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using static gamemanagerscript;
 public class CharSelect : MonoBehaviour
 {
     private GameObject[] charList;
     private int charIdx = 0;
-
+    //public gamemanagerscript GameManag;
+    private gamemanagerscript gm = new gamemanagerscript();
     private void Start()
     {
         charIdx = PlayerPrefs.GetInt("CharacterSelected");
@@ -42,6 +43,8 @@ public class CharSelect : MonoBehaviour
     public void Confirm()
     {
         PlayerPrefs.SetInt("CharacterSelected", charIdx);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //gm.LoadGame();
+        gamemanagerscript.instance.LoadGame();
     }
 }
