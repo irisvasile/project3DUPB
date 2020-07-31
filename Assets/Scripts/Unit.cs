@@ -28,6 +28,38 @@ public abstract class Unit : MonoBehaviour
         health = healthMax;
     }
 
+    private Texture2D MakeTex(int width, int height, Color col)
+    {
+        Color[] pix = new Color[width * height];
+        Color gr = Color.black;
+        gr.a = col.a;
+        int w = 0;
+        for (int i = 0; i < pix.Length; ++i)
+        {
+            if (w > width * health / healthMax)
+                pix[i] = gr;
+            else
+                pix[i] = col;
+            ++w;
+            if (w == width)
+                w = 0;
+        }
+        Texture2D result = new Texture2D(width, height);
+        result.SetPixels(pix);
+        result.Apply();
+        return result;
+    }
+
+    void OnGUI()
+    {
+        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        Rect r = new Rect(pos.x - 30, Screen.height - pos.y - 20, 60, 20);
+        GUIContent content = new GUIContent(health + "/" + healthMax);
+        GUIStyle style = new GUIStyle(GUI.skin.box);
+        style.normal.background = MakeTex(60, 20, new Color(0f, 1f, 0f, 0.5f));
+        GUI.Box(r, content, style);
+    }
+
     public void FixedUpdate()
     {
         isStunned = false;

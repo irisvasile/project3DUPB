@@ -1477,6 +1477,7 @@ MonoBehaviour:
   points: 4
   xp: 0
   inventory: {fileID: 0}
+  heroClass: 3
 --- !u!114 &457055966
 MonoBehaviour:
   m_ObjectHideFlags: 0
