@@ -87,4 +87,9 @@ public class ManaUser : Unit
             return true;
         return false;
     }
+
+    public void GrantSpell(string spellName)
+    {
+        spells.Add(SpellManager.spells[spellName].Clone());
+    }
 }

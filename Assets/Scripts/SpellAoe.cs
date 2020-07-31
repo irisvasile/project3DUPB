@@ -14,6 +14,7 @@ public class SpellAoe : Spell
         this.radius = radius;
         this.targetsEnemies = targetsEnemies;
         this.targetsSelf = targetsSelf;
+        this.impactName = impactName;
         LoadImpact(impactName);
     }
 
@@ -29,5 +30,10 @@ public class SpellAoe : Spell
                 u.ApplyBuff(effect, user);
             }
         }
+    }
+
+    public override Spell Clone()
+    {
+        return new SpellAoe(spellName, cooldownMax, manaCost, effect, radius, targetsEnemies, targetsSelf, impactName);
     }
 }
