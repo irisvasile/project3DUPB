@@ -54,7 +54,7 @@ public abstract class Unit : MonoBehaviour
     {
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Rect r = new Rect(pos.x - 30, Screen.height - pos.y - 20, 60, 20);
-        GUIContent content = new GUIContent(health + "/" + healthMax);
+        GUIContent content = new GUIContent((int)health + "/" + (int)healthMax);
         GUIStyle style = new GUIStyle(GUI.skin.box);
         style.normal.background = MakeTex(60, 20, new Color(0f, 1f, 0f, 0.5f));
         GUI.Box(r, content, style);
