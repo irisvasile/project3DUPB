@@ -8,6 +8,11 @@ public abstract class Buff
     public float durationMax;
     public string name = "buff";
 
+    public virtual void OnApply(Unit target)
+    {
+
+    }
+
     public void FixedUpdate(Unit target)
     {
         if (!target)
@@ -20,7 +25,10 @@ public abstract class Buff
         }
     }
 
-    public abstract void TriggeredUpdate(Unit target);
+    public virtual void TriggeredUpdate(Unit target)
+    {
+
+    }
 
     public bool Equals(Buff buff)
     {

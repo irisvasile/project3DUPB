@@ -101,6 +101,7 @@ public abstract class Unit : MonoBehaviour
                 ++buffStacks[buff];
             buffSources[buff] = source;
             Debug.Log("buff:" + buffStacks[buff]);
+            buff.OnApply(this);
         }
         else
         {
@@ -108,6 +109,7 @@ public abstract class Unit : MonoBehaviour
             buffSources[buff] = source;
             buffStacks[buff] = 1;
             buffDuration[buff] = buff.durationMax;
+            buff.OnApply(this);
         }
     }
 

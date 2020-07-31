@@ -10,11 +10,14 @@ public abstract class BuffInstant : Buff
         stacksMax = 1;
         name = "instant";
     }
-
-    public override void TriggeredUpdate(Unit target)
+    public override void OnApply(Unit target)
     {
         target.RemoveBuff(this);
         Execute(target);
+    }
+
+    public override void TriggeredUpdate(Unit target)
+    {
     }
 
     public abstract void Execute(Unit target);

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstantAttributeDamage : BuffInstant
+public class InstantAttributeHeal : BuffInstant
 {
-    public float damage;
+    public float healing;
     public Attribute atr;
 
-    public InstantAttributeDamage(float damage, Attribute atr)
+    public InstantAttributeHeal(float healing, Attribute atr)
     {
-        this.damage = damage;
+        this.healing = healing;
         this.atr = atr;
     }
 
@@ -19,7 +19,7 @@ public class InstantAttributeDamage : BuffInstant
         Hero hero = target.buffSources[this] as Hero;
         if (!hero)
         {
-            target.TakeDamage(damage);
+            target.Heal(healing);
             return;
         }
         switch (atr)
@@ -28,8 +28,8 @@ public class InstantAttributeDamage : BuffInstant
             case Attribute.STR: bonus = hero.strength; break;
             default: bonus = hero.wisdom; break;
         }
-        if (hero.heroClass == HeroClass.WIZARD)
-            damage *= 1.15f;
-        target.TakeDamage(damage * (1 + bonus / 100));
+        if (hero.heroClass == HeroClass.CLERIC)
+            healing *= 1.5f;
+        target.Heal(healing * (1 + bonus / 100));
     }
 }
