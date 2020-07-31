@@ -9,6 +9,15 @@ public enum Attribute
     WIS
 }
 
+public enum HeroClass
+{
+    WARRIOR,
+    RANGER,
+    WIZARD,
+    CLERIC,
+    ROGUE
+}
+
 public class Hero : ManaUser
 {
     public int level = 1;
@@ -21,6 +30,7 @@ public class Hero : ManaUser
     [HideInInspector]
     public PlayerInventory inventory;
     public const int goldPercentageLost = 10;
+    public HeroClass heroClass;
 
     public void Start()
     {
