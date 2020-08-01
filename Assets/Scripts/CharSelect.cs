@@ -29,6 +29,12 @@ public class CharSelect : MonoBehaviour
         //toggle render on for selected character
         if (charList[charIdx])
             charList[charIdx].SetActive(true);
+
+        Hero h = GetComponent<Hero>();
+        if (h)
+        {
+            h.heroClass = (HeroClass)charIdx;
+        }
     }
 
     public void Select(int idx)
