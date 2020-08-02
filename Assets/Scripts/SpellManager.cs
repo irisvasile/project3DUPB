@@ -10,9 +10,9 @@ public class SpellManager
     static SpellManager()
     {
         // spammable spells
-        AddSpell(new SpellAoe("Cleave", 0, 20, new InstantAttributeDamage(5, Attribute.STR, null), 5, true, false, "ImpactCrimson"));
-        AddSpell(new SpellMissile("Arcane Missile", 0, 2, 20, new InstantAttributeDamage(20, Attribute.WIS, null), 2, 2, true, "MissileArcane", "ImpactArcane"));
-        AddSpell(new SpellMissile("Frost Shot", 0, 2, 22, new InstantAttributeDamage(5, Attribute.DEX, new BuffAttributeBoost("Frost Shot", 4, 2, 0, -20, -20, Attribute.DEX, "")), 1, 3, true, "MissileFrost", "ImpactFrost"));
+        AddSpell(new SpellAoe("Cleave", 0.5f, 10, new InstantAttributeDamage(5, Attribute.STR, null), 5, true, false, "ImpactCrimson"));
+        AddSpell(new SpellMissile("Arcane Missile", 0.5f, 20, 20, new InstantAttributeDamage(10, Attribute.WIS, null), 2, 2, true, "MissileArcane", "ImpactArcane"));
+        AddSpell(new SpellMissile("Frost Shot", 0.5f, 15, 22, new InstantAttributeDamage(5, Attribute.DEX, new BuffAttributeBoost("Frost Shot", 4, 2, 0, -20, -20, Attribute.DEX, "")), 1, 3, true, "MissileFrost", "ImpactFrost"));
 
         AddSpell(new SpellMissile("Fireball", 4, 40, 20, new InstantAttributeDamage(2, Attribute.WIS, fire), 2, 10, true, "MissileFire", "ImpactFire"));
         AddSpell(new SpellMissile("Sanguine Shot", 10, 8, 30, new InstantAttributeDamage(25, Attribute.DEX, new DebuffDOT("Sanguine Shot", 2, 1, 1, 4, "ImpactCrimsonTall")), 2, 3, true, "MissileCrimson", "ImpactCrimson"));
