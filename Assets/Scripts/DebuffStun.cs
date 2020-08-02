@@ -20,4 +20,9 @@ public class DebuffStun : Buff
     {
         target.isStunned = true;
     }
+
+    protected override void GenerateMainDescription()
+    {
+        description = "Target can't move, attack or use spells.";
+    }
 }

@@ -16,6 +16,7 @@ public abstract class Unit : MonoBehaviour
     public Dictionary<Buff, Unit> buffSources = new Dictionary<Buff, Unit>();
     public Dictionary<Buff, int> buffStacks = new Dictionary<Buff, int>();
     public Dictionary<Buff, float> buffDuration = new Dictionary<Buff, float>();
+    public Dictionary<Buff, float> buffTimer = new Dictionary<Buff, float>();
     [HideInInspector]
     public Alliance alliance;
     public int attackDamageMin, attackDamageMax;
@@ -131,11 +132,11 @@ public abstract class Unit : MonoBehaviour
         for (; i < buffs.Count && !buffs[i].Equals(buff); ++i);
         if (i != buffs.Count)
         {
-            buffDuration[buff] = Mathf.Max(buffDuration[buff], buff.durationMax);
+            buffDuration[buff] = buff.durationMax;
             if (buffStacks[buff] < buff.stacksMax)
                 ++buffStacks[buff];
             buffSources[buff] = source;
-            Debug.Log("buff:" + buffStacks[buff]);
+            //Debug.Log("buff:" + buffStacks[buff]);
             buff.OnApply(this);
         }
         else
@@ -143,7 +144,11 @@ public abstract class Unit : MonoBehaviour
             buffs.Add(buff);
             buffSources[buff] = source;
             buffStacks[buff] = 1;
-            buffDuration[buff] = buff.durationMax;
+            if (!(buff is BuffInstant))
+            {
+                buffDuration[buff] = buff.durationMax;
+                buffTimer[buff] = 0;
+            }
             buff.OnApply(this);
         }
     }
@@ -210,5 +215,6 @@ public abstract class Unit : MonoBehaviour
         buffSources = new Dictionary<Buff, Unit>();
         buffStacks = new Dictionary<Buff, int>();
         buffDuration = new Dictionary<Buff, float>();
+        buffTimer = new Dictionary<Buff, float>();
     }
 }

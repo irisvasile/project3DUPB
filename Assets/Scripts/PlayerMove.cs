@@ -22,8 +22,6 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]
     public Hero hero;
 
-    private Vector3 lastPath;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -39,31 +37,29 @@ public class PlayerMove : MonoBehaviour
         RaycastHit hit;
 
         //am implementat hold position pe left shift
-        lastPath = navMeshAgent.destination;
         if (Input.GetKey(KeyCode.LeftShift))
         {
             navMeshAgent.isStopped = true;
-            return;
+            navMeshAgent.destination = transform.position;
         }
         else
         {
             navMeshAgent.isStopped = false;
-            navMeshAgent.destination = lastPath;
         }
 
-        //am modificat putin ca sa pun blink
-        if (Input.GetButtonDown("Fire1")) //left click
+        if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire1")) //left click
         {
             if (Physics.Raycast(ray, out hit, 1000)) //max distance = 1000
             {
-                if (hit.collider.tag == "Enemy")
+                if (Input.GetButtonDown("Fire1") && hit.collider.tag == "Enemy" && (!navMeshAgent.isStopped || Vector3.Distance(transform.position, hit.transform.position) <= attackDistance))
                 {
                     targetedEnemy = hit.transform;
                     clickedEnemy = true;
                     print("I WANNA TARGET THE ENEMY!");
-                    GetComponent<Hero>().Attack(hit.point);
+                    if (Vector3.Distance(transform.position, hit.transform.position) <= attackDistance)
+                        GetComponent<Hero>().Attack(targetedEnemy.transform.position);
                 }
-                else
+                else if (!navMeshAgent.isStopped)
                 {
                     walking = true;
                     clickedEnemy = false;
@@ -73,13 +69,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
         else
-        if (Input.GetButtonDown("Fire2")) //right click
+        if (Input.GetButton("Fire2") || Input.GetButtonDown("Fire2")) //right click
         {
             if (hero.spells.Count > 0 && Physics.Raycast(ray, out hit, hero.spells[0].range)) //max distance = spell range
             {
                 GetComponent<Hero>().CastSpell(0, hit.point);
-                // dupa blink destinatia ramane setata si continua sa mearga spre ea
-                // cineva ar trebui sa repare asta
+                navMeshAgent.destination = transform.position;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -87,8 +82,7 @@ public class PlayerMove : MonoBehaviour
             if (hero.spells.Count > 1 && Physics.Raycast(ray, out hit, hero.spells[1].range)) //max distance = spell range
             {
                 GetComponent<Hero>().CastSpell(1, hit.point);
-                // dupa blink destinatia ramane setata si continua sa mearga spre ea
-                // cineva ar trebui sa repare asta
+                navMeshAgent.destination = transform.position;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -96,8 +90,7 @@ public class PlayerMove : MonoBehaviour
             if (hero.spells.Count > 2 && Physics.Raycast(ray, out hit, hero.spells[2].range)) //max distance = spell range
             {
                 GetComponent<Hero>().CastSpell(2, hit.point);
-                // dupa blink destinatia ramane setata si continua sa mearga spre ea
-                // cineva ar trebui sa repare asta
+                navMeshAgent.destination = transform.position;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -105,8 +98,7 @@ public class PlayerMove : MonoBehaviour
             if (hero.spells.Count > 3 && Physics.Raycast(ray, out hit, hero.spells[3].range)) //max distance = spell range
             {
                 GetComponent<Hero>().CastSpell(3, hit.point);
-                // dupa blink destinatia ramane setata si continua sa mearga spre ea
-                // cineva ar trebui sa repare asta
+                navMeshAgent.destination = transform.position;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -114,8 +106,7 @@ public class PlayerMove : MonoBehaviour
             if (hero.spells.Count > 4 && Physics.Raycast(ray, out hit, hero.spells[4].range)) //max distance = spell range
             {
                 GetComponent<Hero>().CastSpell(4, hit.point);
-                // dupa blink destinatia ramane setata si continua sa mearga spre ea
-                // cineva ar trebui sa repare asta
+                navMeshAgent.destination = transform.position;
             }
         }
 

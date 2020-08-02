@@ -40,20 +40,20 @@ public class Hero : ManaUser
         attackDamageMax = 12;
         // doar pentru testing
         AddExperience(ExperienceForLevel(2));
-        health = 2;
+        health /= 2;
         attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly", false);
-        GrantSpell("Sanguine Shot");
         GrantSpell("Arcane Missile");
+        //GrantSpell("Cleave");
+        GrantSpell("Blink");
         GrantSpell("Rain of Arrows");
         GrantSpell("Fireball");
         GrantSpell("Hellfire");
-        GrantSpell("Blink");
     }
 
     public new void FixedUpdate()
     {
         base.FixedUpdate();
-        Debug.Log(buffs[0]);
+        Debug.LogWarning(spells[0].GetDescription());
     }
 
     /**

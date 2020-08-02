@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,12 @@ public abstract class Buff
     public string buffName = "Default Buff";
     public Buff nextBuff;
     public ParticleSystem impactType;
+    protected string description = "";
 
     public virtual void OnApply(Unit target)
     {
+        Debug.LogError(buffName + " applied to " + target.name);
+
         if (nextBuff != null)
             target.ApplyBuff(nextBuff, target.buffSources[this]);
     }
@@ -58,4 +62,23 @@ public abstract class Buff
     {
         return buffName.GetHashCode();
     }
+
+    public string GetDescription()
+    {
+        if (description.Equals(""))
+        {
+            GenerateMainDescription();
+            if (!(this is BuffInstant))
+            {
+                if (stacksMax > 1)
+                {
+                    description += " Stacks " + stacksMax + " times.";
+                }
+                description += " Lasts " + Mathf.RoundToInt(durationMax) + " seconds.";
+            }
+        }
+        return description;
+    }
+
+    protected abstract void GenerateMainDescription();
 }

@@ -15,4 +15,9 @@ public class InstantAttackDamage : BuffInstant
     {
         target.TakeDamage(damageAmplifier * target.buffSources[this].GetAttackDamage());
     }
+
+    protected override void GenerateMainDescription()
+    {
+        
+    }
 }

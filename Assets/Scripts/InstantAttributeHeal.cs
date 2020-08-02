@@ -33,4 +33,11 @@ public class InstantAttributeHeal : BuffInstant
             healing *= 1.5f;
         target.Heal(healing * (1 + bonus / 100));
     }
+
+    protected override void GenerateMainDescription()
+    {
+        description = "Restores " + healing + " health.";
+        description += "\nEach point of " + atr + " increases effieciency by 1%.";
+        description += "\nBeing a Cleric increases effieciency by 15%.";
+    }
 }

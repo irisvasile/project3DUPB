@@ -22,7 +22,7 @@ public class SpellAoe : Spell
     {
         Collider[] hitColliders = Physics.OverlapSphere(user.transform.position, radius);
         ShowImpact(user.transform.position);
-        if (targetsSelf)
+        if (radius == 0 || targetsSelf)
             user.ApplyBuff(effect, user);
         for (int i = 0; i < hitColliders.Length; ++i)
         {
@@ -37,5 +37,22 @@ public class SpellAoe : Spell
     public override Spell Clone()
     {
         return new SpellAoe(spellName, cooldownMax, manaCost, effect, radius, targetsEnemies, targetsSelf, impactName);
+    }
+
+    protected override void GenerateMainDescription()
+    {
+        if (radius == 0)
+            description = "Apply buffs to yourself.";
+        else
+        {
+            if (targetsEnemies)
+                description = "Apply buffs to nearby enemies";
+            else
+                description = "Apply buffs to nearby allies";
+            if (targetsSelf)
+                description += " and yourself.";
+            else
+                description += ".";
+        }
     }
 }
