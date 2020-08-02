@@ -12,6 +12,8 @@ public abstract class Buff
 
     public virtual void OnApply(Unit target)
     {
+        Debug.LogError(buffName + " applied to " + target.name);
+
         if (nextBuff != null)
             target.ApplyBuff(nextBuff, target.buffSources[this]);
     }
