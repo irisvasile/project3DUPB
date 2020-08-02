@@ -14,9 +14,10 @@ public class Monster : ManaUser
     {
         inventory = GetComponent<Inventory>();
         alliance = Alliance.Evil;
+        int i = 0;
         foreach (string spellName in spellNames)
         {
-            GrantSpell(spellName);
+            SetSpell(i++, spellName);
         }
     }
 

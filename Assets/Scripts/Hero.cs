@@ -42,12 +42,12 @@ public class Hero : ManaUser
         AddExperience(ExperienceForLevel(2));
         health /= 2;
         attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly", false);
-        GrantSpell("Arcane Missile");
-        //GrantSpell("Cleave");
-        GrantSpell("Blink");
-        GrantSpell("Rain of Arrows");
-        GrantSpell("Fireball");
-        GrantSpell("Hellfire");
+        SetSpell(0, "Cleave");
+        SetSpell(1, "Heal");
+        SetSpell(2, "Blink");
+        SetSpell(3, "Rain of Arrows");
+        SetSpell(6, "Fireball");
+        SetSpell(5, "Hellfire");
     }
 
     public new void FixedUpdate()

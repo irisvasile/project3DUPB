@@ -25,7 +25,7 @@ public class UISpell : MonoBehaviour
             buttonText.text = "RMB";
         else
             buttonText.text = index + "";
-        if (hero.spells.Count <= index)
+        if (hero.spells[index] == null)
         {
             image.sprite = Resources.Load<Sprite>("Textures/Spells/Empty") as Sprite;
             cooldownText.enabled = false;

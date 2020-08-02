@@ -28,7 +28,10 @@ public class UISpellTooltip : MonoBehaviour
         else
         {
             Spell spell = hero.spells[index];
-            tooltip.text = spell.spellName + "\n" + spell.GetDescription();
+            if (spell == null)
+                tooltip.text = "No spell. (Placeholder text).";
+            else
+                tooltip.text = spell.spellName + "\n" + spell.GetDescription();
         }
     }
 }
