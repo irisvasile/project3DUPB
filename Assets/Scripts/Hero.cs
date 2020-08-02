@@ -53,6 +53,7 @@ public class Hero : ManaUser
     public new void FixedUpdate()
     {
         base.FixedUpdate();
+        Debug.LogWarning(spells[0].GetDescription());
     }
 
     /**

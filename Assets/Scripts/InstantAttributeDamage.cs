@@ -33,4 +33,11 @@ public class InstantAttributeDamage : BuffInstant
             damage *= 1.15f;
         target.TakeDamage(damage * (1 + bonus / 100));
     }
+
+    protected override void GenerateMainDescription()
+    {
+        description = "Deals " + damage + " damage.";
+        description += "\nEach point of " + atr + " increases effieciency by 1%.";
+        description += "\nBeing a Wizard increases effieciency by 15%.";
+    }
 }

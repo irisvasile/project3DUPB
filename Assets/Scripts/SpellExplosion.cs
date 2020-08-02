@@ -42,4 +42,24 @@ public class SpellExplosion : Spell
         return new SpellExplosion(spellName, cooldownMax, manaCost, range, effect, radius, targetsEnemies, targetsSelf, impactName, isBlink);
 
     }
+
+    protected override void GenerateMainDescription()
+    {
+        if (isBlink)
+            description = "Teleport up to " + range + " units away and apply";
+        else
+            description = "Apply";
+        if (targetsEnemies)
+            description += " buffs to enemies in a radius around the target.";
+        else
+            description += " buffs to allies in a radius around the target.";
+        if (targetsSelf)
+        {
+            description += " The buffs are also applied to you";
+            if (!isBlink)
+                description += ".";
+            else
+                description += " if you are within the radius of the target.";
+        }
+    }
 }

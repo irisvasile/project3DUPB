@@ -6,7 +6,7 @@ public class InstantDamage : BuffInstant
 {
     public float damage;
 
-    public InstantDamage(float damage, Buff newBuff)
+    public InstantDamage(float damage, Buff nextBuff)
     {
         this.damage = damage;
         this.nextBuff = nextBuff;
@@ -15,5 +15,10 @@ public class InstantDamage : BuffInstant
     public override void Execute(Unit target)
     {
         target.TakeDamage(damage);
+    }
+
+    protected override void GenerateMainDescription()
+    {
+        description = "Deals " + damage + " damage";
     }
 }

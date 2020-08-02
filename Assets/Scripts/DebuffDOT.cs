@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DebuffDOT : Buff
 {
-    public float damageInterval = 1, damageOverTime = 5, initialDamage = 0;
+    public float damageInterval = 1, damageOverTime = 5;
 
     public DebuffDOT(string buffName, float durationMax, int stacksMax, float damageInterval, float damageOverTime, string impactName)
     {
@@ -27,5 +27,13 @@ public class DebuffDOT : Buff
             target.TakeDamage(damageOverTime * target.buffStacks[this]);
             ShowImpact(target);
         }
+    }
+    protected override void GenerateMainDescription()
+    {
+        description = "Deals " + damageOverTime + " damage every ";
+        if (damageInterval == 1)
+            description += "second.";
+        else
+            description += damageInterval + " seconds.";
     }
 }

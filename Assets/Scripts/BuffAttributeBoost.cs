@@ -24,7 +24,6 @@ public class BuffAttributeBoost : Buff
         ShowImpact(target);
     }
 
-
     public override void TriggeredUpdate(Unit target)
     {
         if (target == null)
@@ -52,4 +51,24 @@ public class BuffAttributeBoost : Buff
         target.movementSpeed *= finalMSBonus;
     }
 
+    protected override void GenerateMainDescription()
+    {
+        if (attackDamageBonus > 0)
+            description += "Increases attack damage by " + attackDamageBonus + "%.";
+        else if (attackDamageBonus < 0)
+            description += "Decreases attack damage by " + attackDamageBonus + "%.";
+        if (attackDamageBonus != 0 && (attackSpeedBonus != 0 || movementSpeedBonus != 0))
+            description += " ";
+        if (attackSpeedBonus > 0)
+            description += "Increases attack speed by " + attackSpeedBonus + "%.";
+        else if (attackSpeedBonus < 0)
+            description += "Decreases attack speed by " + attackSpeedBonus + "%.";
+        if (attackSpeedBonus != 0 && movementSpeedBonus != 0)
+            description += " ";
+        if (movementSpeedBonus > 0)
+            description += "Increases movement speed by " + movementSpeedBonus + "%.";
+        else if (movementSpeedBonus < 0)
+            description += "Decreases movement speed by " + movementSpeedBonus + "%.";
+        description += "\nEach point of " + atr + " increases effieciency by 1%.";
+    }
 }

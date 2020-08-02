@@ -26,8 +26,18 @@ public class SpellMissile : Spell
     {
         Missile.Summon(missileName, impactType, this, user, pos);
     }
+
     public override Spell Clone()
     {
         return new SpellMissile(spellName, cooldownMax, manaCost, range, effect, radius, speed, targetsEnemies, missileName, impactName);
+    }
+
+    protected override void GenerateMainDescription()
+    {
+        description = "Fire a missile that explodes on contact and applies buffs to all";
+        if (targetsEnemies)
+            description +=  " enemies inside the explosion.";
+        else
+            description += " allies inside the explosion.";
     }
 }
