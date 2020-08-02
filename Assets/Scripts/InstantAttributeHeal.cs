@@ -38,6 +38,6 @@ public class InstantAttributeHeal : BuffInstant
     {
         description = "Restores " + healing + " health.";
         description += "\nEach point of " + atr + " increases effieciency by 1%.";
-        description += "\nBeing a Cleric increases effieciency by 15%.";
+        description += "\nBeing a Cleric increases effieciency by 50%.";
     }
 }
