@@ -11,6 +11,7 @@ public class UIHUD : MonoBehaviour
     public TMP_Text manaText;
     public TMP_Text xpText;
     public TMP_Text lvlText;
+    public TMP_Text goldText;
 
     private void Update()
     {
@@ -18,5 +19,6 @@ public class UIHUD : MonoBehaviour
         manaText.text = Mathf.FloorToInt(hero.mana) + "/" + Mathf.FloorToInt(hero.manaMax);
         xpText.text = hero.xp + "/" + hero.ExperienceForLevel(hero.level);
         lvlText.text = "Level " + hero.level;
+        goldText.text = hero.inventory.gold + " Gold";
     }
 }
