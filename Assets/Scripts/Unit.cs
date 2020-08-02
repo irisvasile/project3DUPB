@@ -19,7 +19,8 @@ public abstract class Unit : MonoBehaviour
     [HideInInspector]
     public Alliance alliance;
     public int attackDamageMin, attackDamageMax;
-    public float attackCooldownMax, attackCooldown = 0;
+    public float attackCooldownBase, attackCooldownMax, attackCooldown = 0;
+    public float movementSpeedBase, movementSpeed;
     public bool isStunned = false;
 
     // Start is called before the first frame update
@@ -63,6 +64,8 @@ public abstract class Unit : MonoBehaviour
     public void FixedUpdate()
     {
         isStunned = false;
+        movementSpeed = movementSpeedBase;
+        attackCooldownMax = attackCooldownBase;
         if (health <= 0 || transform.position.y <= -10)
         {
             Die();
@@ -124,7 +127,7 @@ public abstract class Unit : MonoBehaviour
     public void ApplyBuff(Buff buff, Unit source)
     {
         int i = 0;
-        Debug.Log("buff:" + buff.name);
+        //Debug.Log("buff:" + buff.buffName);
         for (; i < buffs.Count && !buffs[i].Equals(buff); ++i);
         if (i != buffs.Count)
         {
@@ -203,6 +206,7 @@ public abstract class Unit : MonoBehaviour
 
     public void Cleanse()
     {
+        buffs = new List<Buff>();
         buffSources = new Dictionary<Buff, Unit>();
         buffStacks = new Dictionary<Buff, int>();
         buffDuration = new Dictionary<Buff, float>();

@@ -7,11 +7,11 @@ public class InstantAttributeDamage : BuffInstant
     public float damage;
     public Attribute atr;
 
-    public InstantAttributeDamage(float damage, Attribute atr, Buff effect)
+    public InstantAttributeDamage(float damage, Attribute atr, Buff nextBuff)
     {
         this.damage = damage;
         this.atr = atr;
-        this.effect = effect;
+        this.nextBuff = nextBuff;
     }
 
     public override void Execute(Unit target)

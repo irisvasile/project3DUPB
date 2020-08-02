@@ -6,10 +6,10 @@ public class InstantDamage : BuffInstant
 {
     public float damage;
 
-    public InstantDamage(float damage, Buff effect)
+    public InstantDamage(float damage, Buff newBuff)
     {
         this.damage = damage;
-        this.effect = effect;
+        this.nextBuff = nextBuff;
     }
 
     public override void Execute(Unit target)
