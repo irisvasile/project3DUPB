@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     public float attackRate;
     private float nextAttack;
 
-    private NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     private Animator anim; //TODO animators
     private bool walking;
 

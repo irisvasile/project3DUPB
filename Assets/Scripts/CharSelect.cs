@@ -51,6 +51,6 @@ public class CharSelect : MonoBehaviour
         PlayerPrefs.SetInt("CharacterSelected", charIdx);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //gm.LoadGame();
-        gamemanagerscript.instance.LoadGame();
+        //gamemanagerscript.instance.LoadGame();
     }
 }

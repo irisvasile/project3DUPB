@@ -7,6 +7,7 @@ public class pauseMenu : MonoBehaviour
     public static  bool GameIsPaused = false;
     // Update is called once per frame
     public GameObject pauseMenuUI;
+    private LoadingScreenControl lsc;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -35,7 +36,9 @@ public class pauseMenu : MonoBehaviour
     public void LoadMenu() {
         Time.timeScale = 1f;
         Debug.Log("Loading Menu...");
-        gamemanagerscript.instance.LoadGame();
+        //gamemanagerscript.instance.LoadGame();
+        //LoadingScreenControl.instance.LoadScreenExample(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);        //lsc.LoadScreenExample(1);
     }
 
     public void QuitGame() {

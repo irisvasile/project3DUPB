@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 537e9b202db7774478b606812a0dce27, type: 2}
 --- !u!1 &51210544
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701634780}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &701634782
 Camera:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class gamemanagerscript : MonoBehaviour
         if (pauseMenu.GameIsPaused) {
             Debug.Log("am intrat cand jocul e oprit================");
             scenesLoading.Add(SceneManager.UnloadSceneAsync((int) SceneIndexes.MAP));
+            //scenesLoading.Add(SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);)
             scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.TITLE_SCREEN, LoadSceneMode.Additive));
             //scenesLoading.Add(SceneManager.UnloadSceneAsync((int) SceneIndexes.TITLE_SCREEN));
             //scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.MAP, LoadSceneMode.Additive));
@@ -33,6 +34,7 @@ public class gamemanagerscript : MonoBehaviour
         else {
             Debug.Log("jocul nu e pe pauza-------------------");
             scenesLoading.Add(SceneManager.UnloadSceneAsync((int) SceneIndexes.TITLE_SCREEN));
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.MAP, LoadSceneMode.Additive));
         //scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.NAVMESH, LoadSceneMode.Additive));
         }
