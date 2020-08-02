@@ -6,11 +6,14 @@ public abstract class Buff
 {
     public int stacksMax;
     public float durationMax;
-    public string name = "buff";
+    public string buffName = "Default Buff";
+    public Buff nextBuff;
+    public ParticleSystem impactType;
 
     public virtual void OnApply(Unit target)
     {
-
+        if (nextBuff != null)
+            target.ApplyBuff(nextBuff, target.buffSources[this]);
     }
 
     public void FixedUpdate(Unit target)
@@ -24,6 +27,20 @@ public abstract class Buff
             target.RemoveBuff(this);
         }
     }
+    public void ShowImpact(Unit target)
+    {
+        if (impactType != null)
+        {
+            ParticleSystem impact = GameObject.Instantiate(impactType) as ParticleSystem;
+            impact.transform.localScale *= 2;
+            impact.transform.position = target.transform.position + 2 * Vector3.up;
+        }
+    }
+
+    public void LoadImpact(string impactName)
+    {
+        impactType = Resources.Load<ParticleSystem>("Prefabs/Impacts/" + impactName) as ParticleSystem;
+    }
 
     public virtual void TriggeredUpdate(Unit target)
     {
@@ -32,11 +49,13 @@ public abstract class Buff
 
     public bool Equals(Buff buff)
     {
-        return name.Equals(buff.name);
+        if (this is BuffInstant || buff is BuffInstant)
+            return false;
+        return buffName.Equals(buff.buffName);
     }
 
     public override int GetHashCode()
     {
-        return name.GetHashCode();
+        return buffName.GetHashCode();
     }
 }

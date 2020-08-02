@@ -22,10 +22,12 @@ public class SpellAoe : Spell
     {
         Collider[] hitColliders = Physics.OverlapSphere(user.transform.position, radius);
         ShowImpact(user.transform.position);
+        if (targetsSelf)
+            user.ApplyBuff(effect, user);
         for (int i = 0; i < hitColliders.Length; ++i)
         {
             Unit u = hitColliders[i].GetComponent<Unit>();
-            if (u != null && user.CanTarget(u, targetsEnemies, targetsSelf))
+            if (u != null && user.CanTarget(u, targetsEnemies, false))
             {
                 u.ApplyBuff(effect, user);
             }

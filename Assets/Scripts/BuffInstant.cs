@@ -4,17 +4,15 @@ using UnityEngine;
 
 public abstract class BuffInstant : Buff
 {
-    public Buff effect;
     public BuffInstant()
     {
         durationMax = -1;
         stacksMax = 1;
-        name = "instant";
+        buffName = "Instant Buff";
     }
     public override void OnApply(Unit target)
     {
-        if (effect != null)
-            target.ApplyBuff(effect, target.buffSources[this]);
+        base.OnApply(target);
         target.RemoveBuff(this);
         Execute(target);
     }

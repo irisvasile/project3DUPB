@@ -18,22 +18,22 @@ public abstract class Spell
     {
         if (cooldown > 0)
         {
-            Debug.Log(spellName + " not ready yet! CD Remaining: " + cooldown);
+            //Debug.Log(spellName + " not ready yet! CD Remaining: " + cooldown);
             return false;
         }
         if (Vector3.Distance(user.transform.position, pos) > range)
         {
-            Debug.Log("Too far away!");
+            //Debug.Log("Too far away!");
             return false;
         }
         if (user.SpendMana(manaCost))
         {
             cooldown = cooldownMax;
             Use(user, pos);
-            Debug.Log("Casted!");
+            //Debug.Log("Casted!");
             return true;
         }
-        Debug.Log("Not enough mana!");
+        //Debug.Log("Not enough mana!");
         return false;
     }
 

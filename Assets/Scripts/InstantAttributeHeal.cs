@@ -7,16 +7,16 @@ public class InstantAttributeHeal : BuffInstant
     public float healing;
     public Attribute atr;
 
-    public InstantAttributeHeal(float healing, Attribute atr, Buff effect)
+    public InstantAttributeHeal(float healing, Attribute atr, Buff nextBuff)
     {
         this.healing = healing;
         this.atr = atr;
-        this.effect = effect;
+        this.nextBuff = nextBuff;
     }
 
     public override void Execute(Unit target)
     {
-        int bonus;
+        float bonus;
         Hero hero = target.buffSources[this] as Hero;
         if (!hero)
         {

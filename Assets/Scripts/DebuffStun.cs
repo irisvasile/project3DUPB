@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DebuffStun : Buff
 {
-    public DebuffStun(string name, float durationMax)
+    public DebuffStun(string buffName, float durationMax)
     {
-        this.name = name;
+        this.buffName = buffName;
         this.durationMax = durationMax;
         stacksMax = 1;
     }

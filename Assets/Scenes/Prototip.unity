@@ -940,8 +940,11 @@ MonoBehaviour:
   alliance: 1
   attackDamageMin: 0
   attackDamageMax: 0
+  attackCooldownBase: 0
   attackCooldownMax: 0
   attackCooldown: 0
+  movementSpeedBase: 0
+  movementSpeed: 0
   isStunned: 0
   mana: 60
   manaMax: 60
@@ -1559,8 +1562,11 @@ MonoBehaviour:
   alliance: 0
   attackDamageMin: 3
   attackDamageMax: 5
+  attackCooldownBase: 0
   attackCooldownMax: 3
   attackCooldown: 0
+  movementSpeedBase: 0
+  movementSpeed: 0
   isStunned: 0
   mana: 100
   manaMax: 100
@@ -1739,8 +1745,11 @@ MonoBehaviour:
   alliance: 1
   attackDamageMin: 0
   attackDamageMax: 0
+  attackCooldownBase: 0
   attackCooldownMax: 0
   attackCooldown: 0
+  movementSpeedBase: 0
+  movementSpeed: 0
   isStunned: 0
   mana: 60
   manaMax: 60
@@ -1986,8 +1995,11 @@ MonoBehaviour:
   alliance: 1
   attackDamageMin: 0
   attackDamageMax: 0
+  attackCooldownBase: 0
   attackCooldownMax: 0
   attackCooldown: 0
+  movementSpeedBase: 0
+  movementSpeed: 0
   isStunned: 0
   mana: 60
   manaMax: 60
@@ -1996,7 +2008,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   spellNames:
   - Fireball
-  target: {fileID: 457055965}
+  target: {fileID: 0}
 --- !u!136 &488555885
 CapsuleCollider:
   m_ObjectHideFlags: 0
