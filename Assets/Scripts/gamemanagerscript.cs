@@ -21,10 +21,21 @@ public class gamemanagerscript : MonoBehaviour
     public void LoadGame() {
 
         loadingScreen.gameObject.SetActive(true);
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int) SceneIndexes.TITLE_SCREEN));
-        scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.MAP, LoadSceneMode.Additive));
-        //scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.NAVMESH, LoadSceneMode.Additive));
 
+        if (pauseMenu.GameIsPaused) {
+            Debug.Log("am intrat cand jocul e oprit================");
+            scenesLoading.Add(SceneManager.UnloadSceneAsync((int) SceneIndexes.MAP));
+            scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.TITLE_SCREEN, LoadSceneMode.Additive));
+            //scenesLoading.Add(SceneManager.UnloadSceneAsync((int) SceneIndexes.TITLE_SCREEN));
+            //scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.MAP, LoadSceneMode.Additive));
+            pauseMenu.GameIsPaused = false;
+        }
+        else {
+            Debug.Log("jocul nu e pe pauza-------------------");
+            scenesLoading.Add(SceneManager.UnloadSceneAsync((int) SceneIndexes.TITLE_SCREEN));
+            scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.MAP, LoadSceneMode.Additive));
+        //scenesLoading.Add(SceneManager.LoadSceneAsync((int) SceneIndexes.NAVMESH, LoadSceneMode.Additive));
+        }
         StartCoroutine(GetSceneLoadProgress());
 
     }
