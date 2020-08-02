@@ -42,7 +42,7 @@ public class Hero : ManaUser
         AddExperience(ExperienceForLevel(2));
         health /= 2;
         attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly", false);
-        GrantSpell("Sanguine Shot");
+        GrantSpell("Cleave");
         GrantSpell("Arcane Missile");
         GrantSpell("Rain of Arrows");
         GrantSpell("Fireball");
