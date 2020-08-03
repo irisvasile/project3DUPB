@@ -46,7 +46,7 @@ public class Hero : ManaUser
         SetSpell(1, "Heal");
         SetSpell(2, "Blink");
         SetSpell(3, "Rain of Arrows");
-        SetSpell(6, "Fireball");
+        SetSpell(4, "Fireball");
         SetSpell(5, "Hellfire");
     }
 
