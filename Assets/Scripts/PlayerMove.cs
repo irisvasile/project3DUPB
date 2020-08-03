@@ -109,6 +109,14 @@ public class PlayerMove : MonoBehaviour
                 navMeshAgent.destination = transform.position;
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            if (hero.spells[5] != null && Physics.Raycast(ray, out hit, hero.spells[5].range)) //max distance = spell range
+            {
+                GetComponent<Hero>().CastSpell(5, hit.point);
+                navMeshAgent.destination = transform.position;
+            }
+        }
 
         if (clickedEnemy)
         {
