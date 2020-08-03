@@ -43,7 +43,7 @@ public class Hero : ManaUser
         health /= 2;
         attackSpell = new SpellExplosion("Attack", 0, 0, 2.5f, new InstantAttackDamage(1), 0.5f, true, false, "ImpactHoly", false);
         SetSpell(0, "Cleave");
-        SetSpell(1, "Heal");
+        SetSpell(1, "Sanguine Shot");
         SetSpell(2, "Blink");
         SetSpell(3, "Rain of Arrows");
         SetSpell(6, "Fireball");
