@@ -12,6 +12,7 @@ public class Monster : ManaUser
 
     void Start()
     {
+        ID = 1;
         inventory = GetComponent<Inventory>();
         alliance = Alliance.Evil;
         int i = 0;

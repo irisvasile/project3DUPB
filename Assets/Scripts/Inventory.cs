@@ -15,7 +15,10 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < backpackSizeMax; ++i)
             backpackItems.Add(null);
     }
-
+    public void AddGold(int addedGold)
+    {
+        this.gold += addedGold;
+    }
     /**
      * <summary>Checks whether the inventory is full.</summary>
      */

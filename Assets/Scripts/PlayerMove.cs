@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.ComTypes;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class PlayerMove : MonoBehaviour
     private bool clickedEnemy;
     [HideInInspector]
     public Hero hero;
-
+    public MessageManager mes;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +47,10 @@ public class PlayerMove : MonoBehaviour
         {
             navMeshAgent.isStopped = false;
         }
-
         if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire1")) //left click
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
             if (Physics.Raycast(ray, out hit, 1000)) //max distance = 1000
             {
                 if (Input.GetButtonDown("Fire1") && hit.collider.tag == "Enemy" && (!navMeshAgent.isStopped || Vector3.Distance(transform.position, hit.transform.position) <= attackDistance))
@@ -67,6 +69,11 @@ public class PlayerMove : MonoBehaviour
                     navMeshAgent.destination = hit.point;
                 }
             }
+        }
+        else if(Input.GetKeyDown(KeyCode.F))
+        {
+            npcToInteract.Interact();
+            mes.CloseMessagePanel();
         }
         else
         if (Input.GetButton("Fire2") || Input.GetButtonDown("Fire2")) //right click
@@ -151,6 +158,27 @@ public class PlayerMove : MonoBehaviour
             }
             navMeshAgent.isStopped = true;
             walking = false;
+        }
+    }
+    private NPC npcToInteract;
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collided");
+        NPC npc = other.GetComponent<NPC>();
+        if(npc != null)
+        {
+            Debug.Log("FoundNpc");
+            npcToInteract = npc;
+            mes.OpenMessagePanel(" ");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        NPC npc = other.GetComponent<NPC>();
+        if (npc != null)
+        {
+            npcToInteract = null;
+            mes.CloseMessagePanel();
         }
     }
 }

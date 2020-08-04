@@ -11,6 +11,7 @@ public enum Alliance
 
 public abstract class Unit : MonoBehaviour
 {
+    public int ID;
     public float health, healthMax;
     public List<Buff> buffs = new List<Buff>();
     public Dictionary<Buff, Unit> buffSources = new Dictionary<Buff, Unit>();
@@ -119,6 +120,7 @@ public abstract class Unit : MonoBehaviour
      */
     public virtual void Die()
     {
+        CombatLog.EnemyDied(this);
         Destroy(gameObject);
     }
 
